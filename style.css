@@ -8,7 +8,15 @@ body {
                 sans-serif;
         padding: 0;
         margin: 0;
+        position: relative;
+        min-height:100vh;
 }
+
+body::after {
+        content: '';
+        display: block;
+        height: 60px; /* Set same as footer's height */
+      }
 
 a {
         color: rgb(75, 70, 74);
@@ -35,7 +43,7 @@ html {
 .page-footer {
         background-color: rgb(75, 70, 74);
         color: #fff;
-        padding: 20px;
+        padding: 0px;
         text-align: center;
 }
 
@@ -59,7 +67,6 @@ html {
 .page-body {
         padding: 20px;
 }
-
 
 .main-nav {
         display: flex;
