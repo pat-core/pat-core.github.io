@@ -1,14 +1,27 @@
-
 body {
-  background-color: #fff;
-  color: #333;
-  font:
-    1.2em / 1.5 Helvetica Neue,
-    Helvetica,
-    Arial,
-    sans-serif;
-  padding: 0;
-  margin: 0;
+        background-color: #fff;
+        color: #333;
+        font:
+                1.2em / 1.5 Helvetica Neue,
+                Helvetica,
+                Arial,
+                sans-serif;
+        padding: 0;
+        margin: 0;
+}
+
+a {
+        color: rgb(75, 70, 74);
+        text-decoration: none;
+}
+
+a:visited {
+        color: slategray;
+}
+
+a:hover {
+        color: #fff;
+        background-color: rgb(55, 50, 54);
 }
 
 html {
@@ -23,17 +36,23 @@ html {
         background-color: rgb(75, 70, 74);
         color: #fff;
         padding: 20px;
+        text-align: center;
+}
+
+.page-footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
 }
 
 .page-footer a {
         padding: 0.5em 1em;
-        display: block;
         color: #fff;
+        text-decoration: none;
 }
 
 .page-footer div {
         padding: 0.5em 1em;
-        display: block;
         color: #fff;
 }
 
@@ -53,6 +72,7 @@ html {
         padding: 0.5em 1em;
         display: block;
         color: #fff;
+        text-decoration: none;
 }
 
 .main-nav div {
@@ -62,9 +82,11 @@ html {
         background-color: rgb(55, 50, 54);
 }
 
+.main-nav img {
+        padding: 0.5em 1em;
+        display: block;
+}
 
 .push {
         margin-left: auto;
 }
-
-
