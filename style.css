@@ -101,8 +101,6 @@ html {
 
 @media screen and (max-width: 600px) {
         .main-nav {
-                width: 60px;
                 display: block;
-                text-align: center;
         }
 }
