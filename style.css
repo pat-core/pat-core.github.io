@@ -51,7 +51,8 @@ html {
         position: absolute;
         bottom: 0;
         width: 100%;
-        text-align: center;
+        justify-content: center;
+        display: flex;
 }
 
 .page-footer a {
@@ -60,16 +61,19 @@ html {
         text-decoration: none;
 }
 
-.page-footer a:visited {
+
+.footer-text-div {
         padding: 0.5em 1em;
         color: #fff;
-        text-decoration: none;
-        background-color: rgb(55, 50, 54);
+        border-right:1px;
+        border-right-color:#fff;
+        border-right-style: solid;
 }
 
-.page-footer div {
+.footer-active-div {
         padding: 0.5em 1em;
         color: #fff;
+        background-color: rgb(55, 50, 54);    
 }
 
 .page-body {
