@@ -60,6 +60,13 @@ html {
         text-decoration: none;
 }
 
+.page-footer a:visited {
+        padding: 0.5em 1em;
+        color: #fff;
+        text-decoration: none;
+        background-color: rgb(55, 50, 54);
+}
+
 .page-footer div {
         padding: 0.5em 1em;
         color: #fff;
