@@ -21,7 +21,7 @@ body::after {
 
 a {
         color: rgb(75, 70, 74);
-        text-decoration: none;
+        text-decoration: underline;
 }
 
 a:visited {
@@ -109,6 +109,11 @@ html {
 .push {
         margin-left: auto;
 }
+
+img {
+        max-width: 100%;
+        height: auto;
+      }
 
 @media screen and (max-width: 600px) {
         .main-nav {
