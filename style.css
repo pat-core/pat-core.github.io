@@ -66,19 +66,23 @@ html {
 .footer-text-div {
         padding: 0.5em 1em;
         color: #fff;
-        border-right:1px;
-        border-right-color:#fff;
+        border-right: 1px;
+        border-right-color: #fff;
         border-right-style: solid;
 }
 
 .footer-active-div {
         padding: 0.5em 1em;
         color: #fff;
-        background-color: rgb(55, 50, 54);    
+        background-color: rgb(55, 50, 54);
 }
 
 .page-body {
         padding: 20px;
+}
+
+.startpage-body {
+        padding-top: 10%;
 }
 
 .main-nav {
@@ -115,10 +119,19 @@ html {
 img {
         max-width: 100%;
         height: auto;
-      }
+}
 
 @media screen and (max-width: 600px) {
         .main-nav {
                 display: block;
         }
+}
+
+.quotation {
+        text-align: center;
+}
+
+.author {
+        text-align: right;
+        padding-right: 5%;
 }
