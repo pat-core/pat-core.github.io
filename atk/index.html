@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATK Quiz</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body class="theme-dark">
+    <header>
+        <div class="controls">
+            <button id="lang-toggle">DE / EN</button>
+            <button id="theme-toggle">☀️ / 🌙</button>
+        </div>
+        <div class="title-wrapper">
+            <h1 id="app-title">Quiz</h1>
+            <select id="category-select">
+                <option value="roblox">Roblox</option>
+            </select>
+        </div>
+    </header>
+
+    <main>
+        <section id="screen-start" class="screen active">
+            <h2 id="start-title">Ready to Play?</h2>
+            <p id="start-desc">Test your knowledge. 10 random questions will be selected.</p>
+            <button id="start-btn">Start Quiz</button>
+        </section>
+
+        <section id="screen-quiz" class="screen">
+            <div class="progress-bar">
+                <span id="question-counter">Question 1 / 10</span>
+                <span id="current-score">Score: 0</span>
+            </div>
+            <h2 id="question-text">Question goes here?</h2>
+            <div id="answers-grid" class="answers-grid">
+                </div>
+            <button id="next-btn" class="hidden">Next Question</button>
+        </section>
+
+        <section id="screen-result" class="screen">
+            <h2 id="result-title">Evaluation</h2>
+            <p id="result-score">You got 8 out of 10 right!</p>
+            <button id="restart-btn">Play Again</button>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
