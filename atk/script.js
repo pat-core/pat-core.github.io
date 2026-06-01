@@ -57,7 +57,13 @@ function showScreen(screenName) {
 // --- File Fetching & Parsing ---
 async function loadQuizData() {
     try {
-        const response = await fetch(`${currentLang}.csv`);
+        // 1. Get the current category from the dropdown menu
+        const category = document.getElementById('category-select').value;
+        
+        // 2. Combine category and language (e.g., "abitur_de.csv" or "roblox_en.csv")
+        const fileName = `${category}_${currentLang}.csv`;
+        
+        const response = await fetch(fileName);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -67,8 +73,8 @@ async function loadQuizData() {
     } catch (error) {
         console.error("Could not load the CSV file:", error);
         alert(currentLang === 'en' ? 
-            "Error loading quiz data. Ensure you are running a local web server." : 
-            "Fehler beim Laden der Quizdaten. Stelle sicher, dass du einen lokalen Webserver verwendest.");
+            "Error loading quiz data. Ensure you are running a local web server and the file exists." : 
+            "Fehler beim Laden der Quizdaten. Stelle sicher, dass du einen lokalen Webserver verwendest und die Datei existiert.");
         return false;
     }
 }
@@ -207,3 +213,9 @@ function updateLanguageUI() {
 }
 
 updateLanguageUI();
+
+// Reset to start screen if the user changes the category
+document.getElementById('category-select').addEventListener('change', () => {
+    document.getElementById('start-btn').disabled = false;
+    showScreen('start');
+});
