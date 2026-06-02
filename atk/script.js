@@ -10,7 +10,7 @@ const dict = {
     en: {
         appTitle: "Quiz",
         catRoblox: "Roblox",                  // <-- New
-        catAbitur: "High School (Abitur)",    // <-- New
+        catAbitur: "High School",    // <-- New
         catMathe: "Math",                     // <-- New
         startTitle: "Ready to Play?",
         startDesc: "Test your knowledge. 10 random questions will be selected.",
