@@ -9,10 +9,12 @@ let currentLang = 'en';
 const dict = {
     en: {
         appTitle: "Quiz",
+        catRoblox: "Roblox",                  // <-- New
+        catAbitur: "High School (Abitur)",    // <-- New
+        catMathe: "Math",                     // <-- New
         startTitle: "Ready to Play?",
         startDesc: "Test your knowledge. 10 random questions will be selected.",
         startBtn: "Start Quiz",
-        nextBtn: "Next Question",
         resultTitle: "Evaluation",
         resultScore: "You got {score} out of {total} right!",
         playAgain: "Play Again",
@@ -21,10 +23,12 @@ const dict = {
     },
     de: {
         appTitle: "Quiz",
+        catRoblox: "Roblox",                  // <-- New
+        catAbitur: "Abitur",                  // <-- New
+        catMathe: "Mathematik",                // <-- New
         startTitle: "Bereit zu spielen?",
         startDesc: "Teste dein Wissen. 10 zufällige Fragen werden ausgewählt.",
         startBtn: "Quiz Starten",
-        nextBtn: "Nächste Frage",
         resultTitle: "Auswertung",
         resultScore: "Du hast {score} von {total} richtig!",
         playAgain: "Nochmal Spielen",
@@ -112,8 +116,13 @@ document.getElementById('start-btn').addEventListener('click', async () => {
     btn.disabled = false;
 });
 
-document.getElementById('next-btn').addEventListener('click', loadNextQuestion);
 document.getElementById('restart-btn').addEventListener('click', () => {
+    showScreen('start');
+});
+
+// Reset to start screen if the user changes the category
+document.getElementById('category-select').addEventListener('change', () => {
+    document.getElementById('start-btn').disabled = false;
     showScreen('start');
 });
 
@@ -146,8 +155,6 @@ function renderQuestion() {
         btn.addEventListener('click', () => handleAnswer(btn, ans, q.correctAnswer));
         grid.appendChild(btn);
     });
-
-    document.getElementById('next-btn').classList.add('hidden');
 }
 
 function handleAnswer(clickedBtn, selectedAnswer, correctAnswer) {
@@ -167,7 +174,10 @@ function handleAnswer(clickedBtn, selectedAnswer, correctAnswer) {
         });
     }
     
-    document.getElementById('next-btn').classList.remove('hidden');
+    // Wait 1 second (1000ms) then load the next question
+    setTimeout(() => {
+        loadNextQuestion();
+    }, 750);
 }
 
 function loadNextQuestion() {
@@ -200,9 +210,11 @@ function updateLanguageUI() {
     document.getElementById('start-title').innerText = texts.startTitle;
     document.getElementById('start-desc').innerText = texts.startDesc;
     document.getElementById('start-btn').innerText = texts.startBtn;
-    document.getElementById('next-btn').innerText = texts.nextBtn;
     document.getElementById('result-title').innerText = texts.resultTitle;
     document.getElementById('restart-btn').innerText = texts.playAgain;
+    document.querySelector('#category-select option[value="roblox"]').innerText = texts.catRoblox;
+    document.querySelector('#category-select option[value="abitur"]').innerText = texts.catAbitur;
+    document.querySelector('#category-select option[value="mathe"]').innerText = texts.catMathe;
     
     if (screens.quiz.classList.contains('active')) {
         document.getElementById('question-counter').innerText = texts.questionCounter.replace('{current}', currentQuestionIndex + 1).replace('{total}', 10);
@@ -212,10 +224,5 @@ function updateLanguageUI() {
     }
 }
 
+// Initialize default language
 updateLanguageUI();
-
-// Reset to start screen if the user changes the category
-document.getElementById('category-select').addEventListener('change', () => {
-    document.getElementById('start-btn').disabled = false;
-    showScreen('start');
-});
